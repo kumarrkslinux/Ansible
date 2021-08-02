@@ -1,7 +1,34 @@
 ---
-name: Download Mangodb
-hosts: all
+- name: Mangodb hosts
+  hosts: all
 
-- name: Download from internet
   tasks: 
+  - name: Download from internet
+    copy: 
+      src: files/mongodb.repo
+      dest: /etc/yum.repos.d/
+      owner: root
+      group: root
+      mode: 644
+
+  - name: Mangodb installtion
+    yum:
+      name: mongodb-org
+      state: present
+
+  - name: Mangodb service need to started
+    service: 
+      name: mongod.service
+      state: started
+      enabled: yes
+
+  - name: Mangodb version 
+    command: mongod --version
+    register: Mongoversion
+
+  - name: debug for Mongo
+    debug:
+      msg: "{{ Mongoversion['stdout'] }}"
+
+      
     
