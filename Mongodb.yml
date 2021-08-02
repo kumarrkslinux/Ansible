@@ -1,0 +1,7 @@
+---
+name: Download Mangodb
+hosts: all
+
+- name: Download from internet
+  tasks: 
+    
