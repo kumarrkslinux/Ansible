@@ -1,0 +1,28 @@
+---
+- name: Docker installtion 
+  hosts: all
+
+  tasks: 
+  - name: install yum utils
+    yum:
+      name: yum-utils
+      state: present
+  - name: downloaded the repo 
+    get_url:
+      url: https://download.docker.com/linux/centos/docker-ce.repo
+      dest: /etc/yum.repos.d/docker-ce.repo
+  - name: install docker
+    yum:
+      name: "{{ item }}"
+      state: present
+    loop: 
+      - docker-ce 
+  - name: docker service need to started 
+    service: 
+      name: docker
+      state: started 
+      enabled: yes
+  - name: pull ubuntu linux image
+    docker_image:
+      name: ubuntu
+      source: pull
