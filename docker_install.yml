@@ -22,7 +22,7 @@
       name: docker
       state: started 
       enabled: yes
-  - name: pull rocky linux image
+  - name: pull ubuntu linux image
     docker_image:
       name: ubuntu
       source: pull
