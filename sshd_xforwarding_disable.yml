@@ -1,0 +1,19 @@
+---
+- name: Xforwarding disable on sshd
+  hosts: all
+
+  tasks:
+  - name: replacing the content
+    replace:
+      path: /etc/ssh/sshd_config
+      regexp: '^X11Forwarding yes$'
+      replace: 'X11Forwarding no'
+    notify: reload sshd  
+
+
+  handlers:
+    - name: reload sshd
+      service:
+        name: sshd
+        state: reloaded
+
