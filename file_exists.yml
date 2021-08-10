@@ -1,0 +1,17 @@
+---
+- name: create a file with content
+  hosts: all
+
+  tasks:
+  - name: check the file exists or not
+    stat:
+      path: /home/arun/newfile
+    register: newfile
+
+  - name: create content of file
+    copy:      
+      content: |
+        This is new conent we are going to add
+        into this file for testing
+      dest: /home/arun/newfile
+    when: not newfile.stat.exists
