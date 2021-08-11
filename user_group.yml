@@ -1,0 +1,30 @@
+---
+- name: user and group creation 
+  hosts: all 
+
+  tasks: 
+  - name: create new group 
+    group: 
+      name: carizen
+      state: present
+  
+  - name: create user and add into the group
+    user: 
+      name: madhu
+      shell: /bin/bash
+      groups: carizen
+      append: yes
+
+  - name: create new file with permission 
+    file: 
+      path: /home/madhu/newfile
+      state: touch
+      mode: 644
+      owner: madhu
+      group: carizen
+  
+  - name: Copy the content of the file motd
+    copy:
+      content: |
+        **********Have Nice Day For You You are Welcome***********
+      dest: /etc/motd         
