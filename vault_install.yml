@@ -1,0 +1,90 @@
+---
+- name: Install vault on El7 server
+  hosts: all
+  
+  tasks:
+  - name: Download the valut file
+    get_url: 
+      url: https://releases.hashicorp.com/vault/1.8.1/vault_1.8.1_linux_amd64.zip
+      dest: /usr/local/bin/
+  - name: install unzip package
+    yum: 
+      name: unzip
+      state: present
+
+  - name: unarchive the Zip file
+    unarchive:
+      src: /usr/local/bin/vault_1.8.1_linux_amd64.zip
+      dest: /usr/local/bin/
+      remote_src: True
+
+  - name: create valut user 
+    user:
+      name: vault
+      shell: /bin/false
+      home: /etc/vault.d
+      system: yes
+
+  - name: creating /etc/vault.d/vault.hcl file
+    copy:
+      dest: /etc/vault.d/vault.hcl
+      mode: 0644
+      owner: vault
+      group: vault
+      content: |
+         ui = true
+         storage "file" {
+           path = "/usr/local/bin/vault"
+         }
+         listener "tcp" {
+          address     = "0.0.0.0:8200"   
+          tls_disable = 1
+         }
+
+  - name: creating systemd service file
+    copy:
+      dest: /etc/systemd/system/vault.service
+      content: |
+         [Unit]
+         Description="HashiCorp Vault - A tool for managing secrets"
+         Documentation=https://www.vaultproject.io/docs/
+         Requires=network-online.target
+         After=network-online.target
+         ConditionFileNotEmpty=/etc/vault.d/vault.hcl
+         StartLimitIntervalSec=60
+         StartLimitBurst=3
+
+
+         [Service]
+         User=vault
+         Group=vault
+         ProtectSystem=full
+         ProtectHome=read-only
+         PrivateTmp=yes
+         PrivateDevices=yes
+         SecureBits=keep-caps
+         AmbientCapabilities=CAP_IPC_LOCK
+         Capabilities=CAP_IPC_LOCK+ep
+         CapabilityBoundingSet=CAP_SYSLOG CAP_IPC_LOCK
+         NoNewPrivileges=yes
+         ExecStart=/usr/local/bin/vault server -config=/etc/vault.d/vault.hcl
+         ExecReload=/bin/kill --signal HUP $MAINPID
+         KillMode=process
+         KillSignal=SIGINT
+         Restart=on-failure
+         RestartSec=5
+         TimeoutStopSec=30
+         StartLimitInterval=60
+         StartLimitIntervalSec=60
+         StartLimitBurst=3
+         LimitNOFILE=65536
+         LimitMEMLOCK=infinity
+
+         [Install]
+         WantedBy=multi-user.target
+
+  - name: starting the service 
+    service:
+      name: vault
+      state: started
+      enabled: yes
