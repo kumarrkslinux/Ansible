@@ -1,0 +1,17 @@
+---
+- name: kernel update and reboot
+  hosts: all
+
+  tasks:
+  - name: updating the latest kernel
+    yum:
+      name: kernel
+      state: latest
+    notify: Once package is update it will reboot the machine
+
+  handlers: 
+  - name: Once package is update it will reboot the machine 
+    reboot:
+      msg: server is going to reboot
+      reboot_timeout: 5
+      test_command: uptime
