@@ -1,0 +1,11 @@
+---
+- name: remove the sudoers line from file
+  hosts: all
+  
+  tasks:
+  - name: remove the file from line
+    lineinfile:
+      path: /etc/sudoers.d/arun
+      regexp: '^%arun ALL='
+      line: '%arun ALL=(ALL) NOPASSWD: ALL'
+      state: absent
