@@ -1,0 +1,23 @@
+---
+- name: System information collection 
+  hosts: all 
+  gather_facts: yes
+  tasks: 
+  - name: OS Distribution version
+    shell: cat /etc/redhat-release
+    register: osvestion 
+
+  - name: kernel version 
+    shell: uname -r
+    register: kernelversion
+ 
+  - name: server uptime
+    shell: uptime | awk {'print $3'} | cut -d, -f1
+    register: server_uptime
+ 
+  - name: server time zone
+    shell: timedatectl |grep Time |awk {'print $4'} |cut -d, -f1 |cut -d "(" -f2
+    register: time_zone
+
+  - name: all the information in file
+    local_action: shell echo "{{ server_uptime.stdout }},{{ time_zone.stdout }},{{ osvestion.stdout }},{{ kernelversion.stdout }},{{ ansible_memtotal_mb }}" >> infomration.csv
