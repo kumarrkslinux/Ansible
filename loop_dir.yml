@@ -1,0 +1,13 @@
+---
+- name: multiple directory creation via loop
+  hosts: all
+
+  tasks:
+  - name: multiple directory created via loop 
+    file: 
+      path: "/tmp/{{ item }}"
+      state: directory
+    loop:
+      - win
+      - sun
+      - fun

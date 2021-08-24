@@ -1,0 +1,13 @@
+---
+- name: start multiple service via loop
+  hosts: all
+
+  tasks:
+  - name: start multiple service
+    service: 
+      name: "{{ item }}"
+      state: started
+      enabled: yes
+    loop:
+      - vsftpd
+      - postfix

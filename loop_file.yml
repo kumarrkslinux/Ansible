@@ -1,0 +1,14 @@
+---
+- name: creating file with loop
+  hosts: all 
+
+  tasks:
+  - name: creating multiple files with loop
+    file:
+      path: "/tmp/{{ item }}"
+      state: touch
+    loop:
+      - anbu
+      - arivu 
+      - arul
+
