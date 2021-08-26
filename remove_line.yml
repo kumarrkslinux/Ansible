@@ -3,6 +3,11 @@
   hosts: all
   
   tasks:
+  - name: take of arun's file
+    copy:
+      dst: /var/tmp/arun_sudoers
+      src: /etc/sudoers.d/arun
+      remote_src: yes
   - name: remove the file from line
     lineinfile:
       path: /etc/sudoers.d/arun
