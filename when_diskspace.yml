@@ -1,0 +1,21 @@
+---
+- name: disk space change
+  hosts: all
+  
+  tasks:
+    - name: take df command output
+      shell: df -h |grep /newlvm |awk {'print $4'}
+      register: output
+
+    - name: debug info
+      debug: 
+        var: output.stdout
+    
+    - name: lvm exband 
+      lvol:
+        vg: newvg
+        lv: newlvm
+        size: +500M
+        resizefs: true
+      when: output.stdout < '500M'
+
