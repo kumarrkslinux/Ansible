@@ -1,0 +1,52 @@
+---
+- name: awx installtion 
+  hosts: all 
+  
+  tasks:
+  - name: install EPEL Repository and nstall some dpendencies packages
+    yum:
+      name: epel-release
+      state: present
+  
+  - name: downloaded the repo 
+    get_url:
+      url: https://download.docker.com/linux/centos/docker-ce.repo
+      dest: /etc/yum.repos.d/docker-ce.repo
+
+  - name: install some dpendencies packages
+    yum:
+      name:
+        - git
+        - gcc
+        - gcc-c++
+        - nodejs
+        - gettext
+        - device-mapper-persistent-data
+        - lvm2
+        - bzip2
+        - python3-pip
+        - ansible
+        - docker-ce
+      state: present
+ 
+  - name: enable docker service
+    service:
+      name: docker
+      state: started
+      enabled: yes
+ 
+  - name: set alerternative for python3
+    alternatives:
+      name: python
+      path: /usr/bin/python3
+
+  - name: install docker-compose via pip3
+    pip:
+      name: docker-compose
+      executable: pip3
+
+  - name: clone the git package
+    git:
+      repo: https://github.com/ansible/awx.git
+      dest: /opt/awx
+
