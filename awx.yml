@@ -49,4 +49,5 @@
     git:
       repo: https://github.com/ansible/awx.git
       dest: /opt/awx
+      separate_git_dir: /opt/awx/awx.git
 
