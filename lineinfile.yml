@@ -1,0 +1,10 @@
+---
+- name: Mondo db compess installtion and configuration
+  hosts: all
+
+  tasks:
+  - name: add mongodb configuration
+    lineinfile:
+      path: /etc/mongod.conf
+      regexp: 'bindIp'
+      line: '   bindIp: 127.0.0.1,192.168.122.121 # Enter 0.0.0.0,:: to bind to all IPv4 and IPv6 addresses or, alternatively, use the net.bindIpAll setting.'
