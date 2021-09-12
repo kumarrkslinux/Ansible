@@ -1,0 +1,8 @@
+---
+- name: Mondo db compess installtion and configuration
+  hosts: all 
+  tasks: 
+  - name: rpm need to download
+    yum: 
+      name: https://downloads.mongodb.com/compass/mongodb-compass-1.28.4.x86_64.rpm
+      state: present
