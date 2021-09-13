@@ -1,0 +1,21 @@
+---
+- name: failed_when in user creattion
+  hosts: all
+
+  tasks:
+    - block:
+        - name: versionlock instakion check
+          yum:
+            name: versionlock
+            state: present
+
+      rescue:
+        - name: when package is failed 
+          yum: 
+            name: yum-plugin-versionlock
+            state: present
+          register: versionlock1
+    
+      always: 
+        - debug:
+            msg: "{{ versionlock1.results }} ALWAYS RUN greater than 1G "

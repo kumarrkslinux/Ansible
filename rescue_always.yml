@@ -1,0 +1,22 @@
+---
+- name: failed_when in user creattion
+  hosts: all
+
+  tasks:
+    - block:
+        - name: make sure the /newlvm is having more than 1G
+          shell: df -h /tmp|grep -v Filesystem|awk '{print $4}'|cut -d G -f1
+          register: newlvmspace
+
+        - name: checking the fail task 
+          fail:
+            msg: "{{ newlvmspace.stdout }} task failed "
+          when: newlvmspace.stdout | float > 1
+    
+      rescue:
+        - debug:
+            msg: "{{ newlvmspace.stdout }} RESCUE greater than 1G "
+    
+      always: 
+        - debug:
+            msg: "{{ newlvmspace.stdout }} ALWAYS RUN greater than 1G "
