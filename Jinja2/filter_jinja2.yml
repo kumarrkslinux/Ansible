@@ -1,0 +1,38 @@
+---
+- name: jinja2 filter play book 
+  hosts: all 
+  gather_facts: true 
+
+  tasks: 
+  - name: Maximum value
+    debug: 
+      msg: >
+            {{ [100, 30, 40, 1000,120] | max }}
+
+  - name: Minimum value
+    debug: 
+      msg: >
+            {{ [100, 30, 40, 1000,120] | min }}
+
+  - name: unique value
+    debug: 
+      msg: >
+            {{ [100, 30, 40, 1000, 120, 30, 40] | unique }}
+
+  - name: find the different 
+    debug: 
+      msg: >
+            {{ [100, 30, 40, 1000,120] | difference([30, 20, 40]) }}
+
+  - name: Random value
+    debug: 
+      msg: >
+            {{ [100, 30, 40, 1000,120] | random }}
+
+  - name: split hostname
+    debug: 
+      msg: >
+              {{ "https://docs.github.com/kumarrkslinux/Ansible/blob/main/when_diskspace.yml" | urlsplit('hostname') }}
+
+# the below dots indicate end of yaml 
+...

@@ -1,0 +1,18 @@
+---
+- name: jinja2 if statement play book 
+  hosts: all 
+  gather_facts: true 
+
+  tasks: 
+  - name: if statement with jinja2 variable template
+    debug: 
+      msg: >
+              {% for value in range(10, 0, -1) %}
+                 {% if value == 5 -%}
+                    {% break %}
+                 {% endif -%}
+                 {{ value }}
+              {% endfor %}
+
+# the below dots indicate end of yaml 
+...
