@@ -1,3 +1,9 @@
 "Forks" - Parallisam - number of simulantanious connection - By default 5  -  ancible.cfg
 
 "Serial" - Rolling update - serial excution - expecially for Web servers 
+
+The main difference is:
+
+All import* statements are pre-processed at the time playbooks are parsed.
+All include* statements are processed as they encountered during the execution of the playbook.
+So import is static, include is dynamic.
