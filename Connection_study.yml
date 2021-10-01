@@ -1,2 +1,3 @@
-Parallisam - number of simulantanious connection - By default 5  - forks - ancible.cfg
-Rolling update - serial excution - expecially for Web servers 
+"Forks" - Parallisam - number of simulantanious connection - By default 5  -  ancible.cfg
+
+"Serial" - Rolling update - serial excution - expecially for Web servers 
