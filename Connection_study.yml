@@ -2,8 +2,10 @@
 
 "Serial" - Rolling update - serial excution - expecially for Web servers 
 
-The main difference is:
+Import and include main difference are:
 
-All import* statements are pre-processed at the time playbooks are parsed.
-All include* statements are processed as they encountered during the execution of the playbook.
+All import* statements are pre-processed at the time playbooks are parsed. - Loop will not work - run in the begining 
+All include* statements are processed as they encountered during the execution of the playbook. - execute only runtime 
 So import is static, include is dynamic.
+
+
