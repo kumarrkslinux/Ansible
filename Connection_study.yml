@@ -8,4 +8,15 @@ All import* statements are pre-processed at the time playbooks are parsed. - Loo
 All include* statements are processed as they encountered during the execution of the playbook. - execute only runtime 
 So import is static, include is dynamic.
 
+defaults: - The main.yml file in this directory contains the default values of role 
+            variables that can be overwritten when the role is used. These variables
+            have low precedence and are intended to be changed and customized in plays.
+files:    - This directory contains static files that are referenced by role tasks.
+handlers: - The main.yml file in this directory contains the role's handler definitions.
+meta:     - The main.yml file in this directory contains information about the role,including author, license, platforms, and optional role dependencies.
+tasks:    - The main.yml file in this directory contains the role's task definitions.
+templates:- This directory contains Jinja2 templates that are referenced by role tasks.
+tests:    - This directory can contain an inventory and test.yml playbook that can be used to test the role.
+vars:     - The main.yml file in this directory defines the role's variable values. Often these variables are used for internal purposes within the role. These
+            variables have high precedence, and are not intended to be changed when used in a playbook.
 
