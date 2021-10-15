@@ -1,0 +1,19 @@
+---
+- name: Install Apache.
+  hosts: all
+
+  vars:
+    - import_tasks: vars/vars.yml
+    
+  handlers:
+    - import_tasks: handlers/handlers.yml
+
+  pre_tasks:
+    - name: Override Apache vars for Red Hat.
+      set_fact:
+        apache_package: httpd
+        apache_service: httpd
+      when: ansible_os_family == 'RedHat'
+
+  tasks:
+    - import_tasks: tasks/web.yml

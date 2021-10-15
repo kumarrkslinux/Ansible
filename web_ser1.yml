@@ -1,0 +1,21 @@
+---
+- name: creating new web server
+  hosts: all 
+
+  tasks:
+  - name: install latest httpd 
+    yum:
+      name: httpd
+      state: latest
+  - name:
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: copy the content on 
+    copy:
+      dest: /var/www/html/index.html
+      content: |
+        Welcome To New Ansible Web Testing
+      
