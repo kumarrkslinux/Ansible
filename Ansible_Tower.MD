@@ -20,3 +20,5 @@ Features:
 8. Real-time job status updates.
 9. Integrated Notification 
 10. PostgreSQL DB has been used and before 3.1 it was Mongodb 
+11. Rabbitmq messaging
+12. From 3.1 version Active/Active Cluster will support
