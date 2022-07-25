@@ -9,7 +9,7 @@ Command line tools are available for easy integration with Jenkins as well. Prov
 
 ![ScreenShot](https://github.com/kumarrkslinux/Ansible/blob/main/Anbile-Tower-strategy.png)
 
-Features:
+###Features:
 1. A graphical user interface dashboard.
 2. Role-based access control.
 3. Job scheduling.
@@ -22,3 +22,18 @@ Features:
 10. PostgreSQL DB has been used and before 3.1 it was Mongodb 
 11. Rabbitmq messaging
 12. From 3.1 version Active/Active Cluster will support
+
+
+###Procedure of installtion: 
+1. Ansible package need to be install and password has to be set in the inventory file in the downloaded files
+2. ./setup.sh has to be run 
+3. Password less authentication need to be created on all the servers client and master. 
+
+##Components: 
+
+###Project:
+A Project is a logical collection of Ansible playbooks, represented in Tower. 
+
+###Credential:
+Credentials are utilized by Tower for authentication when launching Jobs against machines, synchronizing with inventory sources, and importing project content from a version control system.
+You can grant users and teams the ability to use these credentials, without actually exposing the credential to the user. If you have a user move to a different team or leave the organization, you don’t have to re-key all of your systems just because that credential was available in Tower
