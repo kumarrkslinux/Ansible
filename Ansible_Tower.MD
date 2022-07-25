@@ -7,4 +7,4 @@ Inventory can be graphically managed or synced with a wide variety of cloud sour
 It logs all of your jobs, integrates well with LDAP, and has an amazing browsable REST API. 
 Command line tools are available for easy integration with Jenkins as well. Provisioning callbacks provide great support for autoscaling topologies.
 
-![ScreenShot](https://github.com/kumarrkslinux/kubernative/blob/main/Architecture%20with%20Diagrams.PNG)
+![ScreenShot](https://github.com/kumarrkslinux/Ansible/blob/main/Anbile-Tower-strategy.png)
