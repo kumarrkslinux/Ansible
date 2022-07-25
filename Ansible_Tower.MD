@@ -6,3 +6,5 @@ Tower allows you to control access to who can access what, even allowing sharing
 Inventory can be graphically managed or synced with a wide variety of cloud sources. 
 It logs all of your jobs, integrates well with LDAP, and has an amazing browsable REST API. 
 Command line tools are available for easy integration with Jenkins as well. Provisioning callbacks provide great support for autoscaling topologies.
+
+![ScreenShot](https://github.com/kumarrkslinux/kubernative/blob/main/Architecture%20with%20Diagrams.PNG)
