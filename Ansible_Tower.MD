@@ -8,3 +8,15 @@ It logs all of your jobs, integrates well with LDAP, and has an amazing browsabl
 Command line tools are available for easy integration with Jenkins as well. Provisioning callbacks provide great support for autoscaling topologies.
 
 ![ScreenShot](https://github.com/kumarrkslinux/Ansible/blob/main/Anbile-Tower-strategy.png)
+
+Features:
+1. A graphical user interface dashboard.
+2. Role-based access control.
+3. Job scheduling.
+4. Graphical inventory management.
+5. A multi-playbook workflow.
+6. RESTful APIs.
+7. External logging integrations.
+8. Real-time job status updates.
+9. Integrated Notification 
+10. PostgreSQL DB has been used and before 3.1 it was Mongodb 
