@@ -66,5 +66,5 @@ Command line tools are available for easy integration with Jenkins as well. Prov
 
   - Admin 
   - Audit (Read only access for all the resousce 
-  - Memmber (RO, Do not have resource access)
+  - Member (RO, Do not have resource access)
   - Read (Read to org)
