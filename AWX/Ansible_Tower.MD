@@ -43,3 +43,9 @@ Command line tools are available for easy integration with Jenkins as well. Prov
 
 ### Job Templates
 - A job template is a definition and set of parameters for running an Ansible job. Job templates are useful to execute the same job many times. Job templates also encourage the reuse of Ansible playbook content and collaboration between teams. While the REST API allows for the execution of jobs directly, Tower requires that you first create a job template.
+
+### Organizations
+An Organization is a logical collection of Users, Teams, Projects, and Inventories and Jobs, and is the highest level in the Tower object hierarchy.
+
+![image](https://user-images.githubusercontent.com/17757355/183357093-ab64c694-f224-4a3f-af55-de469d01ad3b.png)
+
