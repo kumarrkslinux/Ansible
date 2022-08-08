@@ -12,7 +12,7 @@ Roles associate a group of capabilities with a group of users. All capabilities 
 #  Role Hierarchy and Access Inheritance
 Imagine that you have an organization named “SomeCompany” and want to allow two people, “Josie” and “Carter”, access to manage all the settings associated with that organization. You should make both people members of the organization’s admin_role.
 
-user-role-relationship
+![image](https://user-images.githubusercontent.com/17757355/183356387-e699f263-14f6-43e9-acdd-993553d1d168.png)
 
 Often, you will have many Roles in a system and you will want some roles to include all of the capabilities of other roles. For example, you may want a System Administrator to have access to everything that an Organization Administrator has access to, who has everything that a Project Administrator has access to, and so on.
 
