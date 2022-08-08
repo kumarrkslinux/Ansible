@@ -51,4 +51,12 @@ Command line tools are available for easy integration with Jenkins as well. Prov
 - An Organization is a logical collection of Users, Teams, Projects, and Inventories and Jobs, and is the highest level in the Tower object hierarchy.
 
   ![image](https://user-images.githubusercontent.com/17757355/183357093-ab64c694-f224-4a3f-af55-de469d01ad3b.png)
+### User Types 
 
+By default admin user account is created by tower install which has full control of tower installtion 
+
+Tower user can be created as three types:
+
+- System Adminitrator 
+- System auditor 
+- Normal users 
