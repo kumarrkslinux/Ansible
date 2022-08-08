@@ -65,6 +65,6 @@ Command line tools are available for easy integration with Jenkins as well. Prov
 - Addtional roles can be assigned to a user after it is created in order to grant permissions to view, user, or change addiona Tower objectes 
 
   - Admin 
-  - Audit (Read only access for all the resousce 
-  - Member (RO, Do not have resource access)
+  - Audit (Read only access for all the resousce)[Resources -> Project,Templates,Credential,Hosts,Inventory]
+  - Member (RO, Do not have resource access) 
   - Read (Read to org)
