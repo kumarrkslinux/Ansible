@@ -59,9 +59,9 @@ Command line tools are available for easy integration with Jenkins as well. Prov
     - System auditor 
     - Normal users 
 
-### Organusation Roles
+### Organisation Roles
 
-- Newly created users inherit specific roles from their organusation,based on thier user tyoes.
+- Newly created users inherit specific roles from their organisation,based on thier user tyoes.
 - Addtional roles can be assigned to a user after it is created in order to grant permissions to view, user, or change addiona Tower objectes 
 
   - Admin 
