@@ -43,6 +43,15 @@ Command line tools are available for easy integration with Jenkins as well. Prov
 
 ### Job Templates
 - A job template is a definition and set of parameters for running an Ansible job. Job templates are useful to execute the same job many times. Job templates also encourage the reuse of Ansible playbook content and collaboration between teams. While the REST API allows for the execution of jobs directly, Tower requires that you first create a job template.
+- A workflow job template links together a sequence of disparate resources that accomplishes the task of tracking the full set of jobs that were part of the release process as a single unit. These resources may include:
+
+job templates
+
+workflow templates
+
+project syncs
+
+inventory source syncs
 
 ### Role-Based Access Controls
 - Role-Based Access Controls (RBAC) are built into Tower and allow Tower administrators to delegate access to server inventories, organizations, and more. Administrators can also centralize the management of various credentials, allowing end users to leverage a needed secret without ever exposing that secret to the end user. RBAC controls allow Tower to help you increase security and streamline management.
@@ -68,3 +77,5 @@ Command line tools are available for easy integration with Jenkins as well. Prov
   - Audit (Read only access for all the resousce)[Resources -> Project,Templates,Credential,Hosts,Inventory]
   - Member (RO, Do not have resource access) 
   - Read (Read to org)
+
+
