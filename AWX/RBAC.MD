@@ -18,6 +18,6 @@ Often, you will have many Roles in a system and you will want some roles to incl
 
 This concept is referred to as the ‘Role Hierarchy’:
 
-Parent roles get all capabilities bestowed on any child roles
+- Parent roles get all capabilities bestowed on any child roles
 
-Members of roles automatically get all capabilities for the role they are a member of, as well as any child roles.
+- Members of roles automatically get all capabilities for the role they are a member of, as well as any child roles.
