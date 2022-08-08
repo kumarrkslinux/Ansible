@@ -21,3 +21,7 @@ This concept is referred to as the ‘Role Hierarchy’:
 - Parent roles get all capabilities bestowed on any child roles
 
 - Members of roles automatically get all capabilities for the role they are a member of, as well as any child roles.
+
+The Role Hierarchy is represented by allowing Roles to have “Parent Roles”. Any capability that a Role has is implicitly granted to any parent roles (or parents of those parents, and so on).
+
+![image](https://user-images.githubusercontent.com/17757355/183356630-a5b53c8a-94fe-435c-a627-bede906deb24.png)
