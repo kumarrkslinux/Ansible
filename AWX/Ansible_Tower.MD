@@ -54,7 +54,7 @@ Command line tools are available for easy integration with Jenkins as well. Prov
 ### User Types 
 - By default admin user account is created by tower install which has full control of tower installtion 
   
-  Tower user can be created as one of the three user types:
+  Tower users can be created as one of the three user types:
     - System Adminitrator 
     - System auditor 
     - Normal users 
